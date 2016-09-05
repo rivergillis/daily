@@ -5,6 +5,7 @@ def fib():
         yield a
         a, b = b, a + b
 
+#add the first 1000 fibonacci numbers to a list
 fiblist = []
 for i,n in enumerate(fib()):
     fiblist.append(n)
@@ -13,11 +14,19 @@ for i,n in enumerate(fib()):
 
 def dtofib(n):
     print("dtofib")
-def fibtod(n):
+def fibtod(s):
     print("fibtod")
+    total = 0
+    for index, num in enumerate(s):
+        #print(total)
+        total += int(num) * fiblist[len(s) - index]
+        #print("adding " + num + " * " + str(fiblist[len(s)-index]))
+    #print("about to return! " + str(total))
+    return total
 
 inputs = input().split(' ')
 if inputs[0] == "10":
-    dtofib(int(inputs[1]))
+    print(str(dtofib((inputs[1]))))
 else:
-    fibtod(int(inputs[1]))
+    print(str(fibtod((inputs[1]))))
+
