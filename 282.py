@@ -15,32 +15,25 @@ for i,n in enumerate(fib()):
 
 # convert from decimal base to base fib
 def dtofib(n):
-    print("dtofib")
     remainders = []
     # find the highest divisible fib
     i = 20
     while i > 0:
-        print("i: " + str(i) + " fiblist[i]: " + str(fiblist[i]) + " n: " + str(n))
         if n >= fiblist[i]:
-            print(str(n) + " is greater than equal to " +  str(fiblist[i]))
             remainders.append(1)
             n -= fiblist[i]
         else:
-            print(str(n) + " is not greater than equal to " + str(fiblist[i]))
             remainders.append(0)
         i -= 1
-    return remainders
+    s = ''.join(str(e) for e in remainders)
+    return str(int(s))
 
 
 # convert from base fib to decimal base
 def fibtod(s):
-    print("fibtod")
     total = 0
     for index, num in enumerate(s):
-        #print(total)
         total += int(num) * fiblist[len(s) - index]
-        #print("adding " + num + " * " + str(fiblist[len(s)-index]))
-    #print("about to return! " + str(total))
     return total
 
 # gather input, determine what the base is, send to the function
