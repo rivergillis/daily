@@ -13,11 +13,16 @@ for i,n in enumerate(fib()):
     if i == 1000:
         break
 
+#find the first fib number that is greater than n
+def firstgreaterfib(n):
+    for i in fiblist:
+        if fiblist[i] > n:
+            return i
+
 # convert from decimal base to base fib
 def dtofib(n):
     remainders = []
-    # find the highest divisible fib
-    i = 20
+    i = firstgreaterfib(n) - 1
     while i > 0:
         if n >= fiblist[i]:
             remainders.append(1)
@@ -25,6 +30,7 @@ def dtofib(n):
         else:
             remainders.append(0)
         i -= 1
+    # convert the array to a string, remove leading zeros
     s = ''.join(str(e) for e in remainders)
     return str(int(s))
 
