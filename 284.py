@@ -15,8 +15,10 @@ for word in content:
             if (word == 'apple'):
                 print(letter + " is not in " + tempString)
         else:
-            if (len(tempString) - 1) != inputString.index(letter):
-                tempString = tempString[inputString.index(letter)+1:]
+            if (word == 'apple'):
+                print(str(len(tempString)) + " " + tempString + " " + str(inputString.index(letter)))
+            if (len(tempString) - 1) != tempString.index(letter):
+                tempString = tempString[tempString.index(letter)+1:]
             else:
                 tempString = ''
                 
